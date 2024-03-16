@@ -1,0 +1,46 @@
+.form-modal{
+    display: flex;
+    flex-direction: column;
+}
+.form-row{
+    display: flex;
+    gap: 2rem;
+}
+#group-input{
+    
+    width: 320px;
+    height: 40px;
+    border-color: #CCCCCC;
+    border-radius: 2px;
+}
+.color-options {
+    display: flex;
+    margin-top: 10px;
+  }
+
+.color-option{
+    width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+  cursor: pointer;
+  position: relative;
+  }
+
+  .color-option.selected::after {
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+form button{
+    background-color: #001F8B;
+    color: white;
+    width: 134px;
+    height: 30px;
+    border-radius: 11px;
+    float: right;
+}

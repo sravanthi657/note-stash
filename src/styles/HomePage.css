@@ -1,0 +1,21 @@
+.App{
+    margin: 0;
+    padding:0;
+  }
+  
+  .font-link {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .groups{
+    display: flex;
+    flex-direction: column;
+  }
+  .add-button{
+    background-color: #16008B;
+    color: #FFFFFF;
+    border-radius: 50%;
+    height: 53px;
+    width: 53px;
+    border: none;
+  }
