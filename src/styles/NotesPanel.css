@@ -1,0 +1,78 @@
+.chosenGroup {
+    padding-left: 1rem;
+    height: 90px;
+    display: flex;
+    justify-content: start;
+    gap: 1.5rem;
+    align-items: center;
+    background-color: #001F8B;
+    color: #FFFFFF;
+}
+.chosenGroup div{
+    font-size: 24px;
+    font-family: 'Roboto';
+}
+
+.noteList {
+    padding: 0.5rem 1.5rem 1rem 2rem;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.noteList li {
+    font-size: 18px;
+    font-family: 'Roboto';
+    border-radius: 5px;
+    position: relative;
+    padding: 20px;
+    background-color: #FFFFFF;
+    list-style:none;
+    height: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.dateTime{
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        margin: 5px;
+        font-size: 14px;
+        color: #777; 
+}
+
+.noteTextArea {
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+    box-sizing: border-box;     
+}
+
+
+textarea {
+    color: #9A9A9A;
+    font-weight: 300;
+    text-indent: 20px;
+    font-size: 20px;
+    font-family: 'Roboto';
+    width: 100%;
+    height: 180px; 
+    padding: 10px;
+    border-top: 15px solid #001F8B; /* Apply blue border directly to the textarea */
+    border-left: 20px solid #001F8B;
+    border-right: 20px solid #001F8B;
+    border-bottom: 15px solid #001F8B;
+    box-sizing: border-box; 
+}
+
+
+
+#sendBtn {
+    background: none;
+    width: 24px;
+    height: 19px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}

@@ -1,0 +1,33 @@
+.groupsList ul li.selected {
+    background-color: #2F2F2F2B; 
+    border-radius: 10px;
+  }
+    
+.groupsList ul{
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#notesList{
+    padding: 15px;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.roundDiv{
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 1);
+}
+
+.justifyCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

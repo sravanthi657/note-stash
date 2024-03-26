@@ -1,17 +1,50 @@
-.form-modal{
-    display: flex;
-    flex-direction: column;
+.modalBackground{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(47, 47, 47, 0.75);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.form-row{
+.formModal{
+  width: 31.25rem;
+  height: 12.5rem;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.563rem;
+}
+.formModal .formRow{
     display: flex;
     gap: 2rem;
 }
-#group-input{
-    
-    width: 320px;
+.formHead{
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 1);
+}
+.formRow p{
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: 3.5%;
+}
+#groupInput{
+    width: 350px;
     height: 40px;
-    border-color: #CCCCCC;
-    border-radius: 2px;
+    border: none;
+    border: 2px solid #CCCCCC;
+    border-radius:  22px;
+    transition: all 0.2s ease-in;  
+    text-indent:20px;
+    font-size: 1rem;
+}
+#groupInput::placeholder{
+  font-size: 1rem;
+  font-weight: 400;
 }
 .color-options {
     display: flex;
@@ -41,6 +74,7 @@ form button{
     color: white;
     width: 134px;
     height: 30px;
+    border: none;
     border-radius: 11px;
     float: right;
 }

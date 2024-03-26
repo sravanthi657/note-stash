@@ -1,21 +1,98 @@
-.App{
-    margin: 0;
-    padding:0;
-  }
-  
-  .font-link {
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  .groups{
-    display: flex;
-    flex-direction: column;
-  }
-  .add-button{
-    background-color: #16008B;
-    color: #FFFFFF;
-    border-radius: 50%;
-    height: 53px;
-    width: 53px;
-    border: none;
-  }
+.App {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+}
+
+.groups {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Add scrollbar when content overflows */
+}
+
+.titleRight {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding-bottom: 0px;
+}
+
+.bottomCreate {
+  position: absolute;
+  left: 20%;
+  bottom: 40px;
+}
+
+.addButton {
+  background-color: #16008B;
+  color: #FFFFFF;
+  border-radius: 50%;
+  height: 53px;
+  width: 53px;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notesPanel{
+  background-color: rgba(218, 229, 245, 1);
+  width: 75%; /* Remaining width */
+  height: 100vh;
+  position: relative;
+}
+
+.homeBG {
+  background-color: rgba(218, 229, 245, 1);
+  width: 75%; /* Remaining width */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.themePic {
+  width: 37rem;
+  height: 19rem;
+}
+
+.privacyNote {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 3px;
+  color: rgba(41, 41, 41, 1);
+  font-size: 1rem;
+}
+
+.privacyNote img {
+  width: 13px;
+  height: 17px;
+}
+
+#appTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.125rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#desc {
+  color: rgba(41, 41, 41, 1);
+}
+
