@@ -46,6 +46,10 @@ export default function GroupForm({ addGroup, groups, onClose }) {
       setError('Group name must be unique');
       return;
     }
+    if (groupName.trim().length > 20){
+      setError('Group name length should less than 20 characters');
+      return;
+    }
     const initials = generateInitials(groupName.trim());
     const newEntry = { name: groupName.trim(), color: selectedColor, initials };
     addGroup(newEntry);

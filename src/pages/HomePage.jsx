@@ -11,6 +11,8 @@ export default function HomePage() {
   const [selectedGroup, setSelectedGroup] = useState('');
   const [notes, setNotes] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
 
   useEffect(() => {
     const storedGroups = JSON.parse(localStorage.getItem('groups'));
@@ -29,18 +31,18 @@ export default function HomePage() {
 
   const addNote = (notedetails) => {
     const updatedGroups = groups.map(group => {
-        if (group.name === selectedGroup) {
-            const notesArray = Array.isArray(group.notes) ? group.notes : [];
-            return {
-                ...group,
-                notes: [...notesArray, { content: notedetails.content, timestamp: notedetails.timestamp }] // Include timestamp
-            };
-        }
-        return group;
+      if (group.name === selectedGroup) {
+        const notesArray = Array.isArray(group.notes) ? group.notes : [];
+        return {
+          ...group,
+          notes: [...notesArray, { content: notedetails.content, timestamp: notedetails.timestamp }] // Include timestamp
+        };
+      }
+      return group;
     });
     setGroups(updatedGroups);
     localStorage.setItem('groups', JSON.stringify(updatedGroups));
-};
+  };
 
   const selectGroup = (groupName) => {
     setSelectedGroup(groupName);
@@ -48,14 +50,29 @@ export default function HomePage() {
   const closeModal = () => {
     setOpenModal(false);
   };
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateWindowWidth);
+    return () => {
+      window.removeEventListener('resize', updateWindowWidth);
+    };
+  }, []);
+
+  // Callback function to show the left panel
+  const showLeftPanel = () => {
+    setSelectedGroup('');
+  };
   return <>
     <div className="App">
-      <div className="groups">
-        <div className="titleRight">
+      <div className={`leftPanel ${selectedGroup ? 'hidden' : ''}`}>
+        <div className="leftTitle">
           <p>Pocket Notes</p>
         </div>
         <>
-          <GroupsList groups={groups} selectGroup={selectGroup} selectedGroup={selectedGroup}/>
+          <GroupsList groups={groups} selectGroup={selectGroup} selectedGroup={selectedGroup} />
         </>
         <div className="bottomCreate">
           <button className="addButton" onClick={() => { setOpenModal(true) }}>+</button>
@@ -76,7 +93,7 @@ export default function HomePage() {
         </div>
       </div>)}
       {selectedGroup && (<div className='notesPanel'>
-        <NotesPanel selectedGroup={selectedGroup} addNote={addNote} groups={groups} />
+        <NotesPanel selectedGroup={selectedGroup} addNote={addNote} groups={groups} showLeftPanel={showLeftPanel} />
       </div>)}
     </div>
   </>

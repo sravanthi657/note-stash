@@ -7,30 +7,38 @@
   display: flex;
 }
 
-.groups {
+.leftPanel {
   width: 25%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Add scrollbar when content overflows */
+  padding-top: 70px;
 }
 
-.titleRight {
+.leftTitle {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 25%;
   display: flex;
-  padding: 20px;
   justify-content: center;
   align-content: center;
   font-size: 1.8rem;
   font-weight: 500;
   letter-spacing: 0.3px;
+  z-index: 1;
   padding-bottom: 0px;
+  background: #FFFFFF;
 }
 
 .bottomCreate {
-  position: absolute;
+  position: fixed;
   left: 20%;
   bottom: 40px;
 }
 
+.groupsList{
+  overflow-y: auto;
+}
 .addButton {
   background-color: #16008B;
   color: #FFFFFF;
@@ -50,6 +58,8 @@
   width: 75%; /* Remaining width */
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .homeBG {
@@ -96,3 +106,54 @@
   color: rgba(41, 41, 41, 1);
 }
 
+@media only screen and (max-width: 880px) {
+  /* Adjust styles for smaller screens */
+  .App{
+    display: flex;
+    flex-direction: column;
+  }
+  .leftPanel.hidden {
+    display: none;
+  }
+
+  .leftPanel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding-top: 8%;
+  }
+   .leftPanel .leftTitle{
+    transform: translateX(-15%);
+    width: 100%;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .bottomCreate {
+    position: absolute; /* Adjust position */
+    bottom: 1rem; /* Add margin */
+    left: 90%;
+    justify-content: end;
+  }
+
+  .addButton {
+    position: relative; 
+    left: 50%; 
+    transform: translateX(-50%); 
+  }
+  .homeBG{
+    display: none;
+  }
+  .notesPanel
+  {
+    width: 100%; 
+  }
+
+}
+
+@media only screen and (max-width: 540px){
+  .addButton{
+    left: 30%;
+  }
+}
