@@ -33,7 +33,7 @@
 .bottomCreate {
   position: fixed;
   left: 20%;
-  bottom: 40px;
+  bottom: 10%;
 }
 
 .groupsList{
@@ -131,15 +131,14 @@
   }
 
   .bottomCreate {
-    position: absolute; /* Adjust position */
-    bottom: 1rem; /* Add margin */
-    left: 90%;
+    position: absolute; 
+    bottom: 10%; 
+    left: 80%;
     justify-content: end;
   }
 
   .addButton {
     position: relative; 
-    left: 50%; 
     transform: translateX(-50%); 
   }
   .homeBG{
@@ -153,7 +152,7 @@
 }
 
 @media only screen and (max-width: 540px){
-  .addButton{
-    left: 30%;
+  .bottomCreate{
+    bottom: 10%;
   }
 }

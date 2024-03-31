@@ -36,7 +36,12 @@
 @media only screen and (max-width: 880px) {
     .groupsList ul{
         padding-left: 10%;
-        padding-top: 5%;
+        padding-top: 7%;
     }
 }
 
+@media only screen and (max-width: 400px) {
+    .groupsList ul{
+        padding-top: 14%;
+    }
+}
