@@ -24,9 +24,17 @@ export default function GroupForm({ addGroup, groups, onClose }) {
   const generateInitials = (name) => {
     const words = name.split(' ');
     if (words.length === 1) {
-      return name.charAt(0).toUpperCase();
+      return words[0].slice(0,2).toUpperCase();
     } else {
-      return words.reduce((initials, word) => initials += word.charAt(0), '').toUpperCase();
+      console.log("len ", words.length)
+      const firstIndex = Math.floor(Math.random() * words.length)
+      console.log("firstWord ",firstIndex )
+      console.log("second index ", (firstIndex + 1 + Math.floor(Math.random() * (words.length - 1))) % words.length)
+      const firstWord = words[firstIndex];
+      const secondWord = words[(firstIndex + 1 + Math.floor(Math.random() * (words.length - 1))) % words.length];
+      const firstInitial = firstWord.charAt(0).toUpperCase();
+      const secondInitial = secondWord.charAt(0).toUpperCase();
+      return firstInitial + secondInitial;
     }
   };
   const handleColorSelect = (color) => {

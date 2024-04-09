@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useRef } from 'react';
 import disabledSend from '../assets/disabledSend.png';
 import enabledSend from '../assets/enabledSend.png';
 import backArrow from '../assets/backArrow.png';
@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 export default function NotesPanel({ selectedGroup, addNote, groups, showLeftPanel }) {
     const [newNote, setNewNote] = useState('');
+    const noteDisplayAreaRef = useRef(null);
+
     const handleChange = (event) => {
         setNewNote(event.target.value);
     };
@@ -17,9 +19,24 @@ export default function NotesPanel({ selectedGroup, addNote, groups, showLeftPan
         if (newNote.trim()) {
             addNote({ content: newNote, timestamp: timestmp });
             setNewNote('');
+            // Scroll to the latest note after adding it
+            setTimeout(() => {
+                if (noteDisplayAreaRef.current) {
+                    noteDisplayAreaRef.current.scrollTo({
+                        top: noteDisplayAreaRef.current.scrollHeight,
+                        behavior: 'smooth',
+                    });
+                }
+            }, 0);
         }
-        console.log("submit ", { content: newNote, timestamp: timestmp })
     };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            handleSubmit(e);
+        }
+    };
+
     const selectedGroupData = groups.find(group => group.name === selectedGroup);
     const formatDateTime = (selectedTime) => {
         const date = new Date(selectedTime);
@@ -51,7 +68,7 @@ export default function NotesPanel({ selectedGroup, addNote, groups, showLeftPan
             <div className='roundDiv justifyCenter' style={{ backgroundColor: selectedGroupData.color }}>{selectedGroupData.initials}</div>
             <div className='justifyCenter'><span >{selectedGroup}</span></div>
         </div>
-        <div className="noteDisplayArea">
+        <div className="noteDisplayArea" ref={noteDisplayAreaRef}>
             {selectedGroupData && selectedGroupData.notes ? (<ul className='noteList'>
                 {selectedGroupData.notes.map((note, index) => (
                     <li key={index}>
@@ -67,6 +84,7 @@ export default function NotesPanel({ selectedGroup, addNote, groups, showLeftPan
                 <textarea
                     value={newNote}
                     onChange={handleChange}
+                    onKeyDown={handleKeyPress}
                     placeholder="Enter your text here..........."
                     rows={4}
                 />

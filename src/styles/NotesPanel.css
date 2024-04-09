@@ -7,6 +7,7 @@
     align-items: center;
     background-color: #001F8B;
     color: #FFFFFF;
+    transition: all 0.3s ease; 
 }
 .chosenGroup div{
     font-size: 24px;
@@ -14,6 +15,7 @@
 }
 
 .noteDisplayArea{
+    scroll-behavior: smooth;
     overflow-y: auto;
     flex: 1;
     padding: 0 1rem; 
@@ -58,7 +60,7 @@
     width: 100%; 
     z-index: 1; 
     box-sizing: border-box;
-    bottom: -4px;
+    bottom: -5px;
 }
 
 textarea {
@@ -98,9 +100,16 @@ textarea {
     #sendBtn{
         left: 90%;
     }
+    .noteDisplayArea{
+        width: calc(100vw - 2rem); 
+    }
+    .noteTextArea {
+        width: calc(100vw);
+    }
 }
 
 @media only screen and (max-width: 490px){
+
     #sendBtn{
         left: 85%;
     }
